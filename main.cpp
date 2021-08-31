@@ -37,15 +37,10 @@ unsigned int getValue()
 
 unsigned int getNOD(unsigned int& m, unsigned int& n)
 {
-    unsigned int difference = m;
-    unsigned int count = 0;
-    while(difference >= n)
-    {
-        difference-=n;
-        ++count;
+    while (n != 0) {
+        unsigned int r = m % n;
+        m = n;
+        n = r;
     }
-    if(difference == 0)
-        return n;
-    else
-        getNOD(n,difference);
+    return m;
 }
